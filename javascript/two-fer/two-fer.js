@@ -1,1 +1,3 @@
-export const twoFer = name => `One for ${name || 'you'}, one for me.`;
+export function twoFer(name) {
+  return `One for ${name || 'you'}, one for me.`;
+}
