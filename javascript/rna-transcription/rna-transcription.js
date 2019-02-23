@@ -5,24 +5,23 @@ const DNA_RNA_MAPPING = {
   A: 'U',
 };
 
+function dnaToRna(nucleotide) {
+  if (Object.keys(DNA_RNA_MAPPING).includes(nucleotide)) {
+    // if nucleotide is valid, add respective RNA nucleotide to result
+    return DNA_RNA_MAPPING[nucleotide];
+  }
+
+  // if nucleotide is invalid, throw Error
+  throw new Error('Invalid input DNA.');
+}
+
 function toRna(dna) {
-  let result = '';
+  const rna = dna
+    .split('')
+    .map(dnaToRna)
+    .join('');
 
-  // convert DNA Strand to array
-  const dnaStrand = Array.from(dna);
-
-  // loop over dna strand
-  dnaStrand.forEach((n) => {
-    if (Object.keys(DNA_RNA_MAPPING).includes(n)) {
-      // if nucleotide is valid, add respective RNA nucleotide to result
-      result += DNA_RNA_MAPPING[n];
-    } else {
-      // if nucleotide is invalid, throw Error
-      throw new Error('Invalid input DNA.');
-    }
-  });
-
-  return result;
+  return rna;
 }
 
 module.exports = {
