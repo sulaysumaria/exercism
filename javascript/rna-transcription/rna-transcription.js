@@ -5,8 +5,10 @@ const DNA_RNA_MAPPING = {
   A: 'U',
 };
 
+const VALID_NUCLEOTIDES = Object.keys(DNA_RNA_MAPPING);
+
 function dnaToRna(nucleotide) {
-  if (Object.keys(DNA_RNA_MAPPING).includes(nucleotide)) {
+  if (VALID_NUCLEOTIDES.includes(nucleotide)) {
     // if nucleotide is valid, add respective RNA nucleotide to result
     return DNA_RNA_MAPPING[nucleotide];
   }
