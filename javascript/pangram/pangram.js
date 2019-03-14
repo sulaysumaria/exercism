@@ -18,16 +18,12 @@ function isPangram(str) {
   const allChars = lowerCased.match(ALPHABETS_REGEX);
 
   // create new array to save all the unique characters
-  const allUniqChars = [...new Set(allChars)];
+  const allUniqChars = new Set(allChars);
 
   // if length of total uniq chars is same as that of total number of alphabets,
   // it means all chars are present at least once
   // Thus, input string is pangram
-  if (allUniqChars.length === TOTAL_ALPHABET_CHARS) {
-    return true;
-  }
-
-  return false;
+  return allUniqChars.size === TOTAL_ALPHABET_CHARS;
 }
 
 module.exports = {
